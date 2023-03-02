@@ -2,8 +2,8 @@ import openai
 import streamlit as st
 
 # Add a sidebar with a text input box for the API key
-    st.sidebar.title("OpenAI Chatbot")
-    api_key = st.sidebar.text_input("Enter your OpenAI API key", type="password")
+st.sidebar.title("OpenAI Chatbot")
+api_key = st.sidebar.text_input("Enter your OpenAI API key", type="password")
     
 def generate_response(message_log):
     # Use OpenAI's ChatCompletion API to get the chatbot's response
