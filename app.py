@@ -47,8 +47,4 @@ if st.session_state['generated']:
         st.markdown(f'''**AI:** {st.session_state["generated"][i]}''')
         st.markdown(f'''**You:** {st.session_state['past'][i]}''')
 
-# Initialize the text area for user input, or clear it if there is a new message
-if 'input' not in st.session_state:
-    st.session_state['input'] = ''
-user_input=st.text_area("You:", value=st.session_state['input'], key='input')
-st.session_state['input'] = user_input.strip()
+
