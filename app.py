@@ -10,8 +10,8 @@ message_log = []
     
 def generate_response(message_log):
     # Use OpenAI's Completion API to get the chatbot's response
-    response = openai.ChatCompletion.create(
-        engine="gpt-3.5-turbo",  # The name of the OpenAI chatbot model to use
+    response = openai.Completion.create(
+        engine="text-davinci-003",  # The name of the OpenAI chatbot model to use
         prompt=message_log[-1]['content'],   # The most recent user message as the prompt
         max_tokens=1024,        # The maximum number of tokens (words or subwords) in the generated response
         n=1,        # The number of responses to generate
