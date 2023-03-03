@@ -26,7 +26,13 @@ def generate_response(message_log):
     # If no response with text is found, return the first response's content (which may be empty)
     return response.choices[0].message.content
 
-st.markdown("# gpt-3.5-turbo")
+st.markdown("# OpenAI Chatbot - Escritor Fantasma")
+
+# Add a prompt for the user to start the conversation
+message_log.append({"role": "user", "content": "Quiero que actúes como escritor fantasma"})
+output = generate_response(message_log)
+message_log.append({"role": "assistant", "content": output})
+st.markdown(f'''**AI:** {output}''')
 
 if 'generated' not in st.session_state:
     st.session_state['generated'] = []
