@@ -13,7 +13,7 @@ def generate_response(message_log):
     response = openai.ChatCompletion.create(
         engine="gpt-3.5-turbo",  # The name of the OpenAI chatbot model to use
         prompt=message_log[-1]['content'],   # The most recent user message as the prompt
-        max_tokens=4024,        # The maximum number of tokens (words or subwords) in the generated response
+        max_tokens=1024,        # The maximum number of tokens (words or subwords) in the generated response
         n=1,        # The number of responses to generate
         stop=None,              # The stopping sequence for the generated response, if any
         temperature=0.7,        # The "creativity" of the generated response (higher temperature = more creative)
@@ -31,7 +31,8 @@ if 'generated' not in st.session_state:
     st.session_state['generated'] = []
 if 'past' not in st.session_state:
     st.session_state['past'] = []
-user_input=st.text_area("You:", key=hash(str(st.session_state['past'])), default="", height=100, max_chars=None, key_up=None, help=None)
+user_input=st.text_area("You:",key='input')
+
 
 if user_input:
     # print(message_log)
@@ -46,5 +47,3 @@ if st.session_state['generated']:
     for i in range(len(st.session_state['generated'])-1, -1, -1):
         st.markdown(f'''**AI:** {st.session_state["generated"][i]}''')
         st.markdown(f'''**You:** {st.session_state['past'][i]}''')
-
-
