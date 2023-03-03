@@ -29,7 +29,7 @@ def generate_response(message_log):
 st.markdown("# OpenAI Chatbot - Escritor Fantasma")
 
 # Add a prompt for the user to start the conversation
-message_log.append({"role": "user", "content": "Quiero que actúes como escritor fantasma"})
+message_log.append({"role": "user", "content": "Hola, soy un escritor fantasma. Estoy aquí para ayudarte a escribir lo que necesites. ¿En qué puedo ayudarte hoy?"})
 output = generate_response(message_log)
 message_log.append({"role": "assistant", "content": output})
 st.markdown(f'''**AI:** {output}''')
